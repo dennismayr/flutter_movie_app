@@ -1,21 +1,16 @@
 // Movies List section
 import 'package:flutter/material.dart';
+import './ui/movie_app_list.dart';
 
-class MoviesList extends StatefulWidget {
-  @override
-  MoviesListState createState() {
-    return new MoviesListState();
-  }
-}
-
-// Movies List state
-class MoviesListState extends State<MoviesList> {
+class MovieApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //
     return MaterialApp(
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
+      title: 'Películas Populares',
       home: Scaffold(
-        body: MoviesList(),
+        body: MovieList(),
       ),
     );
   }
