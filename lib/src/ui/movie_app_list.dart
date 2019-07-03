@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/movie_model.dart';
 import '../bloc/movie_app_bloc.dart';
+import './movie_app_detail.dart';
 
 class MovieList extends StatefulWidget {
   @override
@@ -44,6 +45,7 @@ class MovieListState extends State<MovieList> {
     );
   }
 
+  // Here, we'll pull the movie miniatures from tMDB and display them in a 2-wide GridView
   Widget buildList(AsyncSnapshot<ItemModel> snapshot) {
     return GridView.builder(
         itemCount: snapshot.data.results.length,
@@ -57,5 +59,19 @@ class MovieListState extends State<MovieList> {
             ),
           );
         });
+  }
+
+  // Now we're beginning to implement the details view
+  openDetailPage(ItemModel data, int index) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return MovieDetail(
+        title: data.results[index].title,
+        posterUrl: data.results[index].backdrop_path,
+        description: data.results[index].overview,
+        releaseDate: data.results[index].release_date,
+        voteAverage: data.results[index].vote_average.toString(),
+        movieId: data.results[index].id,
+      );
+    }));
   }
 }
