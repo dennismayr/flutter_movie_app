@@ -10,7 +10,7 @@ class TMDBAPIprovider {
 
   // Now we're doing the async part of the API request to get our movie list info
   Future<ItemModel> downloadList() async {
-    print("loaded");
+    print("descargado");
 
     final response = await client
         .get("http://api.themoviedb.org/3/movie/popular?api_key=$_apiKey");
@@ -19,7 +19,7 @@ class TMDBAPIprovider {
     if (response.statusCode == 200) {
       return ItemModel.fromJson(json.decode(response.body));
     } else {
-      throw Exception('Could not load post');
+      throw Exception('No se pudo descargar contenido');
     }
   }
 }
