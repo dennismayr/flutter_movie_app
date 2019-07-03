@@ -3,6 +3,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' show Client;
+import '../models/movie_model.dart';
 
 class TMDBAPIprovider {
   Client client = Client();
@@ -19,7 +20,7 @@ class TMDBAPIprovider {
     if (response.statusCode == 200) {
       return ItemModel.fromJson(json.decode(response.body));
     } else {
-      throw Exception('No se pudo descargar contenido');
+      throw Exception('No se pudo descargar el contenido');
     }
   }
 }
