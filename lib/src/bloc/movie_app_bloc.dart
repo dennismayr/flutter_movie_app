@@ -6,6 +6,7 @@ class MoviesBloc {
   final _repo = Repo();
   final _movieGet = PublishSubject<ItemModel>();
 
+  // Movie data is passed as a stream
   Observable<ItemModel> get allMovies => _movieGet.stream;
   getMovieList() async {
     ItemModel itemModel = await _repo.getMovieList();
