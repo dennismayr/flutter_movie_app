@@ -14,7 +14,7 @@ class ItemModel {
     _total_results = parsedJson['total_results'];
     _total_pages = parsedJson['total_pages'];
 
-    // Now we're going to process 'results' index
+    // Now we're going to iterate through 'results' index
     List<_Result> temp = [];
 
     for (int i = 0; i < parsedJson['results'].length; i++) {
@@ -75,7 +75,7 @@ class _Result {
   String get release_date => _release_date;
   String get overview => _overview;
   bool get adult => _adult;
-  String get _backdrop_path => _backdrop_path;
+  String get backdrop_path => _backdrop_path;
 
   List<int> get genre_ids => _genre_ids;
 
