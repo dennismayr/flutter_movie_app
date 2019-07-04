@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import '../models/trailer_model.dart';
 import '../bloc/movie_detail_bloc_provider.dart';
-
+import 'package:flutter_youtube/flutter_youtube.dart';
 
 // Creating the Movie Details view
 class MovieDetail extends StatefulWidget {
