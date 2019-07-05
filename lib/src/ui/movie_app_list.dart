@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/movie_model.dart';
 import '../bloc/movie_app_bloc.dart';
+import '../bloc/movie_detail_bloc_provider.dart';
 import './movie_app_detail.dart';
 
 class MovieList extends StatefulWidget {
@@ -20,7 +21,6 @@ class MovieListState extends State<MovieList> {
   @override
   void dispose() {
     bloc.dispose();
-
     super.dispose();
   }
 
@@ -38,40 +38,48 @@ class MovieListState extends State<MovieList> {
           } else if (snapshot.hasError) {
             return Text(snapshot.error.toString());
           }
-
           return Center(child: CircularProgressIndicator());
         },
       ),
     );
   }
 
-  // Here, we'll pull the movie miniatures from tMDB and display them in a 2-wide GridView
   Widget buildList(AsyncSnapshot<ItemModel> snapshot) {
     return GridView.builder(
         itemCount: snapshot.data.results.length,
         gridDelegate:
-            new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (BuildContext context, int index) {
           return GridTile(
-            child: Image.network(
-              'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].poster_path}',
-              fit: BoxFit.cover,
+            child: InkResponse(
+              enableFeedback: true,
+              child: Image.network(
+                'https://image.tmdb.org/t/p/w185${snapshot.data
+                    .results[index].poster_path}',
+                fit: BoxFit.cover,
+              ),
+              onTap: () => openDetailPage(snapshot.data, index),
             ),
           );
         });
   }
 
-  // Now we're beginning to implement the details view
   openDetailPage(ItemModel data, int index) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return MovieDetail(
+    final page = MovieDetailBlocProvider(
+      child: MovieDetail(
         title: data.results[index].title,
         posterUrl: data.results[index].backdrop_path,
         description: data.results[index].overview,
         releaseDate: data.results[index].release_date,
         voteAverage: data.results[index].vote_average.toString(),
         movieId: data.results[index].id,
-      );
-    }));
+      ),
+    );
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return page;
+      }),
+    );
   }
 }
