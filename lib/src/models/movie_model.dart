@@ -43,8 +43,7 @@ class _Result {
   String _original_language;
   String _original_title;
 
-  List<int> _genre_ids =
-      []; // this key has sub-keys with indexes to be treated as an array
+  List<int> _genre_ids = [];
 
   String _backdrop_path;
   bool _adult;
@@ -63,7 +62,8 @@ class _Result {
     _original_title = result['original_title'];
 
     for (int i = 0; i < result['genre_ids'].length; i++) {
-      _genre_ids.add(result['genre_ids'][i]); // we're iterating through 'genre_ids' indexes
+      _genre_ids.add(result['genre_ids']
+          [i]); // we're iterating through 'genre_ids' indexes
     }
 
     _backdrop_path = result['backdrop_path'];
