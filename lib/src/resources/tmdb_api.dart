@@ -16,7 +16,7 @@ class TMDBAPIprovider {
     print("descargado");
 
     final response = await client
-        .get("http://api.themoviedb.org/3/movie/popular?api_key=$_apiKey");
+    .get("http://api.themoviedb.org/3/movie/popular?api_key=$_apiKey&append_to_response=videos&language=es");
     print(response.body.toString());
 
     if (response.statusCode == 200) {
