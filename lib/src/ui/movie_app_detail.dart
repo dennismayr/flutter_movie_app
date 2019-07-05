@@ -211,8 +211,8 @@ class MovieDetailState extends State<MovieDetail> {
             height: 100.0,
             color: Colors.grey,
             child: Center(child: Icon(Icons.play_circle_filled)),
-            // TODO: inline YouTube playback
-            // url: "https://youtube.com/watch?v=$movieId"
+            // TODO: inline YouTube playback:
+            // Something like url: "https://youtube.com/watch?v=$movieId"
           ),
           Text(
             data.results[index].name,
