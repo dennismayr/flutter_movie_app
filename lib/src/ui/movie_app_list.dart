@@ -3,6 +3,7 @@ import '../models/movie_model.dart';
 import '../bloc/movie_app_bloc.dart';
 import '../bloc/movie_detail_bloc_provider.dart';
 import './movie_app_detail.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MovieList extends StatefulWidget {
   @override
