@@ -7,9 +7,16 @@ class MovieApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return MaterialApp(
-      theme: ThemeData.light(),
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        buttonColor: Colors.indigo,
+        buttonTheme: ButtonThemeData(
+          textTheme: ButtonTextTheme.primary,
+        ),
+      ),
       title: 'Películas Populares',
-      home: SectionSwitcher(),  // This will switch between 'Inicio' and 'Favoritos'
+      home:
+          SectionSwitcher(), // This will switch between 'Inicio' and 'Favoritos'
     );
   }
 }
@@ -51,7 +58,6 @@ class _SectionSwitcherState extends State<SectionSwitcher> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.indigo[400],
         onTap: _onItemTapped,
       ),
     );
