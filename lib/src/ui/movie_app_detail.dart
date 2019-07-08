@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'dart:async';
 import '../models/trailer_model.dart';
 import '../bloc/movie_detail_bloc_provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // Creating the Movie Details view
 class MovieDetail extends StatefulWidget {
@@ -57,7 +59,7 @@ class MovieDetailState extends State<MovieDetail> {
   void didChangeDependencies() {
     bloc = MovieDetailBlocProvider.of(context);
     bloc.getTrailersById(movieId);
-    print("recreated");
+    print("recreado");
     super.didChangeDependencies();
   }
 
@@ -83,10 +85,11 @@ class MovieDetailState extends State<MovieDetail> {
                   pinned: true,
                   elevation: 0.0,
                   flexibleSpace: FlexibleSpaceBar(
+                      title: Text('Películas Populares'),
                       background: Image.network(
-                    "https://image.tmdb.org/t/p/w500$posterUrl",
-                    fit: BoxFit.cover,
-                  )),
+                        "https://image.tmdb.org/t/p/w500$posterUrl",
+                        fit: BoxFit.cover,
+                      )),
                 ),
               ];
             },
@@ -210,9 +213,9 @@ class MovieDetailState extends State<MovieDetail> {
             margin: EdgeInsets.all(5.0),
             height: 100.0,
             color: Colors.grey,
-            child: Center(child: Icon(Icons.play_circle_filled)),
-            // TODO: inline YouTube playback:
-            // Something like url: "https://youtube.com/watch?v=$movieId"
+            child: Center(
+              child: Icon(Icons.play_circle_filled),
+            ),
           ),
           Text(
             data.results[index].name,
@@ -221,6 +224,33 @@ class MovieDetailState extends State<MovieDetail> {
           ),
         ],
       ),
+    );
+  }
+}
+
+// URL launcher
+class Hyperlink extends StatelessWidget {
+  final String _url;
+  final String _text;
+
+  Hyperlink(this._url, this._text);
+
+  _launchURL() async {
+    if (await canLaunch(_url)) {
+      await launch(_url);
+    } else {
+      throw 'Could not launch $_url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      child: Text(
+        _text,
+        style: TextStyle(decoration: TextDecoration.underline),
+      ),
+      onTap: _launchURL,
     );
   }
 }
