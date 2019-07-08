@@ -217,6 +217,7 @@ class MovieDetailState extends State<MovieDetail> {
               child: Icon(Icons.play_circle_filled),
             ),
           ),
+          // Hyperlink('https://youtube.com/watch?v=$movieId'),
           Text(
             data.results[index].name,
             maxLines: 1,
@@ -229,28 +230,23 @@ class MovieDetailState extends State<MovieDetail> {
 }
 
 // URL launcher
-class Hyperlink extends StatelessWidget {
-  final String _url;
-  final String _text;
+// class Hyperlink extends StatelessWidget {
+//   final String _url;
 
-  Hyperlink(this._url, this._text);
+//   Hyperlink(this._url);
 
-  _launchURL() async {
-    if (await canLaunch(_url)) {
-      await launch(_url);
-    } else {
-      throw 'Could not launch $_url';
-    }
-  }
+//   _launchURL() async {
+//     if (await canLaunch(_url)) {
+//       await launch(_url);
+//     } else {
+//       throw 'Could not launch $_url';
+//     }
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      child: Text(
-        _text,
-        style: TextStyle(decoration: TextDecoration.underline),
-      ),
-      onTap: _launchURL,
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return InkWell(
+//       onTap: _launchURL,
+//     );
+//   }
+// }
