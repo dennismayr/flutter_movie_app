@@ -10,6 +10,7 @@ Mucho código es implementación de otras fuentes, que incorporé estudiando pri
 ### Done
 - Descarga los posters
 - Cada poster muestra ficha de la película en castellano
+- Navegación con `bottomNavigationBar`
 
 ### Work In Progress
 - Navegación con `bottomNavigationBar`
