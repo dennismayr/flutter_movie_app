@@ -84,7 +84,7 @@ class _Result {
   String get poster_path => _poster_path;
   double get popularity => _popularity;
   String get title => _title;
-  double get vote_average => _vote_average;
+  dynamic get vote_average => _vote_average;
   bool get video => _video;
   int get id => _id;
   int get vote_count => _vote_count;
