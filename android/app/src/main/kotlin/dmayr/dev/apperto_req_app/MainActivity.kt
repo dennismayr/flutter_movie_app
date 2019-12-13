@@ -1,4 +1,4 @@
-package dmayr.dev.movie_app_1
+package dmayr.dev.apperto_req_app
 
 import android.os.Bundle
 
