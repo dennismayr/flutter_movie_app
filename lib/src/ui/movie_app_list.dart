@@ -55,7 +55,7 @@ class MovieListState extends State<MovieList> {
             child: InkResponse(
               enableFeedback: true,
               child: Image.network(
-                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].poster_path}',
+                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].posterPath}',
                 fit: BoxFit.cover,
               ),
               onTap: () => openDetailPage(snapshot.data, index),
@@ -68,10 +68,10 @@ class MovieListState extends State<MovieList> {
     final page = MovieDetailBlocProvider(
       child: MovieDetail(
         title: data.results[index].title,
-        posterUrl: data.results[index].backdrop_path,
+        posterUrl: data.results[index].backdropPath,
         description: data.results[index].overview,
-        releaseDate: data.results[index].release_date,
-        voteAverage: data.results[index].vote_average.toString(),
+        releaseDate: data.results[index].releaseDate,
+        voteAverage: data.results[index].voteAverage.toString(),
         movieId: data.results[index].id,
       ),
     );
