@@ -1,4 +1,4 @@
-package dev.dmayr.apperto_movie_app_redo
+package dev.dmayr.apperto_movie_app
 
 import io.flutter.embedding.android.FlutterActivity
 
