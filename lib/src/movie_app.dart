@@ -1,5 +1,5 @@
 // Movies List section
-import 'package:apperto_movie_app_redo/src/bloc/movie_detail_bloc_provider.dart';
+import 'package:apperto_movie_app/src/bloc/movie_detail_bloc_provider.dart';
 import 'package:flutter/material.dart';
 
 import './ui/movie_app_list.dart';
