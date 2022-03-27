@@ -1,10 +1,12 @@
 // Movies List section
-import 'package:apperto_movie_app/src/bloc/movie_detail_bloc_provider.dart';
+import 'package:apperto_themoviedb_app/src/bloc/movie_detail_bloc_provider.dart';
 import 'package:flutter/material.dart';
 
 import './ui/movie_app_list.dart';
 
 class MovieApp extends StatelessWidget {
+  const MovieApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     //
@@ -12,7 +14,7 @@ class MovieApp extends StatelessWidget {
         child: MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.indigo,
-        buttonTheme: ButtonThemeData(
+        buttonTheme: const ButtonThemeData(
           textTheme: ButtonTextTheme.primary,
         ),
       ),
@@ -25,7 +27,7 @@ class MovieApp extends StatelessWidget {
 
 // Section switcher definition
 class SectionSwitcher extends StatefulWidget {
-  SectionSwitcher({Key key}) : super(key: key);
+  const SectionSwitcher({Key key}) : super(key: key);
 
   @override
   _SectionSwitcherState createState() => _SectionSwitcherState();
