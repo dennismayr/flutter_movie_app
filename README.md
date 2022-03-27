@@ -1,16 +1,22 @@
-# apperto_themoviedb_app
+# Flutter - Aplicación para The MovieDB
+## Indice de las 20 películas más populares
 
-Aplicacion para acceder a los contenidos de TheMovieDB
+>"Software is mostly duct tape and strings."
+>                          (- Patrick Shyu)
 
-## Getting Started
+Esta app es el resultado de mi experiencia de 1 semana como iniciado en Flutter.
+Mucho código es implementación de otras fuentes, que incorporé estudiando primero qué se supone que hace.
 
-This project is a starting point for a Flutter application.
+### Done
+- Descarga los posters
+- Cada poster muestra ficha de la película en castellano
+- Navegación con `bottomNavigationBar`
 
-A few resources to get you started if this is your first Flutter project:
+### Work In Progress
+- Navegación con `bottomNavigationBar`
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### TODO
+- [FIXED] ~~ciertos items no despliegan vista individual (investigación en curso: items con index sin decimales)~~
+- _"Shimmer effect"_ en _placeholders_ de posters mientras descargan
+- Favoritos: `toggle` en ficha individual por película
+- Trailers: Activar evento `onTap` para ir a URL de la película: _link_ o implementación de reproductor de video interno (mejor, + permanencia dentro de la app)
