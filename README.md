@@ -21,8 +21,6 @@ implementación de otras fuentes, que incorporé estudiando primero qué se supo
 
 ### TODO
 
-- [FIXED] ~~ciertos items no despliegan vista individual (investigación en curso: items con index
-  sin decimales)~~
 - _"Shimmer effect"_ en _placeholders_ de posters mientras descargan
 - Favoritos: `toggle` en ficha individual por película
 - Trailers: Activar evento `onTap` para ir a URL de la película: _link_ o implementación de
